@@ -1,0 +1,12 @@
+<p>to-do-list works!</p>
+
+<div class="col-md-8 offset-md-2">
+  <input class="form-control" type="text" [formControl]="newToDO" (change)="addNewTodo()">
+  <ul>
+    <li (click)="toggleTodo(i)"
+        [class.complete]="todo.done"
+        *ngFor="let todo of toDoList; index as i">
+      {{todo.content}}
+    </li>
+  </ul>
+</div>

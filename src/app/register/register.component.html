@@ -1,0 +1,13 @@
+<p>register works!</p>
+<form [formGroup]="registerForm">
+
+  <input type="text" formControlName="email">
+<!--  <span *ngIf="registerForm.get('mess',['pwGroup']) && registerForm.get('pwGroup').touched">Email wrong</span>-->
+
+  <fieldset formGroupName="pwGroup">
+    <input placeholder="enter pass" formGroupName="password">
+    <input placeholder="return enter pass" formGroupName="repassword">
+
+  </fieldset>
+  <span *ngIf="registerForm.hasError('mess',['pwGroup']) && registerForm.get('pwGroup').touched">Password wrong</span>
+</form>
