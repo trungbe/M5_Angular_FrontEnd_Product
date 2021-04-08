@@ -5,12 +5,16 @@ import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import {FormsModule} from '@angular/forms';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
+import { HackernewComponent } from './hackernew/hackernew.component';
+import { CountDownComponent } from './count-down/count-down.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalculatorComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
+    HackernewComponent,
+    CountDownComponent
   ],
     imports: [
         BrowserModule,

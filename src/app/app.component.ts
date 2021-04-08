@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Day5-Caculator-Color';
+
+  isFinish = '';
+
+  // tslint:disable-next-line:typedef
+  finishCountdown() {
+    this.isFinish = 'Ket thuc';
+  }
 }

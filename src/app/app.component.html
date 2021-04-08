@@ -1,8 +1,13 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="/assets/angular.png">
-</div>
-<app-calculator></app-calculator>
-<app-color-picker></app-color-picker>
+<!--<div style="text-align:center">-->
+<!--  <h1>-->
+<!--    Welcome to {{ title }}!-->
+<!--  </h1>-->
+<!--  <img width="300" alt="Angular Logo" src="/assets/angular.png">-->
+<!--</div>-->
+<!--<app-calculator></app-calculator>-->
+<!--<app-color-picker></app-color-picker>-->
+<!--<app-hackernew></app-hackernew>-->
+
+
+<app-count-down (finish)="finishCountdown()"></app-count-down>
+{{isFinish}}
