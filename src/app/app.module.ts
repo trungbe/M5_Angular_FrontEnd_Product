@@ -9,6 +9,11 @@ import { HackernewComponent } from './hackernew/hackernew.component';
 import { CountDownComponent } from './count-down/count-down.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { RegisterComponent } from './register/register.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ListComponent } from './list/list.component';
+import { CreateComponent } from './create/create.component';
+import { EditComponent } from './edit/edit.component';
+
 
 @NgModule({
   declarations: [
@@ -18,12 +23,16 @@ import { RegisterComponent } from './register/register.component';
     HackernewComponent,
     CountDownComponent,
     ToDoListComponent,
-    RegisterComponent
+    RegisterComponent,
+    ListComponent,
+    CreateComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
