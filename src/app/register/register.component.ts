@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
+// tslint:disable-next-line:typedef
 function compareP(c: AbstractControl) {
   const v = c.value;
   return v.password === v.repassword ? null : {mess: true};
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       pwGroup: this.fb.group({
         password: '',
-        repassword: ''
+        rePassword: ''
       }, {validators: compareP})
     });
   }
