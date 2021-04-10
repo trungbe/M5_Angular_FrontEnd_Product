@@ -19,6 +19,11 @@ export class ListComponent implements OnInit {
     this.products = this.productService.getAllProduct();
   }
 
+  // tslint:disable-next-line:typedef
+  deleteProduct(id: number) {
+    this.productService.delete(id);
+  }
+
   ngOnInit(): void {
   }
 

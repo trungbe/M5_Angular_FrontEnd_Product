@@ -42,6 +42,17 @@ export class ProductService {
     this.products[id - 1] = p;
   }
 
+  // tslint:disable-next-line:typedef
+  create(product: IProduct) {
+    product.id = this.products.length + 1;
+    this.products.push(product);
+  }
+
+  // tslint:disable-next-line:typedef
+  delete(id: number) {
+    this.products.splice(id - 1, 1);
+  }
+
   constructor() {
   }
 }

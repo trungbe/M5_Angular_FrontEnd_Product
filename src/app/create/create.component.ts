@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ProductService} from '../product.service';
+import {IProduct} from '../iproduct';
 
 @Component({
   selector: 'app-create',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  constructor() { }
+  product: IProduct = {
+    id: 0,
+    name: '',
+    description: ''
+  };
+
+  constructor(private router: Router,
+              private activeRouter: ActivatedRoute,
+              private productService: ProductService) {
+  }
 
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line:typedef
+  createNewProduct() {
+    this.productService.create(this.product);
+    this.router.navigate(['/']);
+  }
 }
