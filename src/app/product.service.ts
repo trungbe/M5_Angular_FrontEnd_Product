@@ -7,6 +7,10 @@ import {Observable} from 'rxjs';
 
 const API_URL = `${environment.apiUrl}`;
 
+const URL_SHOW = API_URL + '/products';
+
+const URL_CREATE = API_URL + '/products/create';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,24 +42,27 @@ export class ProductService {
   // ];
 //Observable: bất đồng bộ , DP,
   getAllProduct(): Observable<IProduct[]> {
-    return this.httpClient.get<IProduct[]>(API_URL + '/products');
+    return this.httpClient.get<IProduct[]>(URL_SHOW);
   }
 
   getProductById(id: number): Observable<IProduct> {
-    return this.httpClient.get<IProduct>(API_URL + `/products/${id}`);
+    const URL_FIND_ID = API_URL + `/products/${id}`;
+    return this.httpClient.get<IProduct>(URL_FIND_ID);
   }
 
   create(product: IProduct): Observable<IProduct> {
-    return this.httpClient.post<IProduct>(API_URL + '/products/create', product);
+    return this.httpClient.post<IProduct>(URL_CREATE, product);
 
   }
 
   update(id: number, product: IProduct): Observable<IProduct> {
-    return this.httpClient.put<IProduct>(API_URL+`/products/edit/${id}`,product)
+    const URL_UPDATE = API_URL + `/products/edit/${id}`;
+    return this.httpClient.put<IProduct>(URL_UPDATE, product);
   }
 
   delete(id: number): Observable<IProduct> {
-    return this.httpClient.delete<IProduct>(API_URL+`/products/delete/${id}`)
+    const URL_DELETE = API_URL + `/products/delete/${id}`;
+    return this.httpClient.delete<IProduct>(URL_DELETE);
   }
 
 
