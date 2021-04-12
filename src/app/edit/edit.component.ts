@@ -3,6 +3,8 @@ import {Subscription} from 'rxjs';
 import {IProduct} from '../iproduct';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {ProductService} from '../product.service';
+import {ICategory} from '../icategory';
+import {CategoryService} from '../category.service';
 
 @Component({
   selector: 'app-edit',
@@ -12,33 +14,48 @@ import {ProductService} from '../product.service';
 export class EditComponent implements OnInit {
   sub: Subscription;
   id: number;
+  categories: ICategory[]=[]
+
   product: IProduct = {
     id: 0,
     name: 'sp demo',
-    description: 'mota hay'
-
+    description: 'mota hay',
+    category:{
+      id:-1,
+    }
   };
 
   constructor(private router: Router,
               private activeRouter: ActivatedRoute,
-              private productService: ProductService) {
+              private productService: ProductService,
+              private categoryService: CategoryService,) {
     this.sub = this.activeRouter.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.getProduct(this.id);
+      this.getProductById(this.id);
     });
   }
 
   ngOnInit(): void {
+    this.getAllCategories()
   }
 
   // tslint:disable-next-line:typedef
-  getProduct(id: number) {
-    this.product = this.productService.getProductById(id);
+  getProductById(id: number) {
+    this.productService.getProductById(id).subscribe(product => {
+      // @ts-ignore
+      this.product = product;
+    });
   }
 
+  getAllCategories(){
+    this.categoryService.getAllCategory().subscribe(categories=>{
+      this.categories = categories;
+    })
+  }
   // tslint:disable-next-line:typedef
   update() {
-    this.productService.update(this.id, this.product);
-    this.router.navigate(['/']);
+    this.productService.update(this.product.id, this.product).subscribe(() => {
+      this.router.navigate(['/']);
+    });
   }
 }

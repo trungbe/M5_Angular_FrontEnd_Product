@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {ProductService} from '../product.service';
 import {IProduct} from '../iproduct';
+import {CategoryService} from '../category.service';
+import {ICategory} from '../icategory';
 
 @Component({
   selector: 'app-create',
@@ -13,20 +15,32 @@ export class CreateComponent implements OnInit {
   product: IProduct = {
     id: 0,
     name: '',
-    description: ''
+    description: '',
+    category: {
+      id: -1,
+    }
   };
+  categories: ICategory[] = [];
 
   constructor(private router: Router,
-              private activeRouter: ActivatedRoute,
-              private productService: ProductService) {
+              private productService: ProductService,
+              private categoryService: CategoryService) {
+    this.getAllCategories();
   }
 
   ngOnInit(): void {
   }
 
-  // tslint:disable-next-line:typedef
   createNewProduct() {
-    this.productService.create(this.product);
-    this.router.navigate(['/']);
+    this.productService.create(this.product)
+      .subscribe(() => {
+        this.router.navigate(['/']);
+      });
+  }
+
+  getAllCategories() {
+    this.categoryService.getAllCategory().subscribe(categories => {
+      this.categories = categories;
+    });
   }
 }

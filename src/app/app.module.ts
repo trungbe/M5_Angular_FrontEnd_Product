@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ListComponent } from './list/list.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { EditComponent } from './edit/edit.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

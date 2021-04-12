@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>Category</th>
     <th>Edit</th>
     <th>Delete</th>
 
@@ -11,6 +12,7 @@
   <tr *ngFor="let p of products">
     <td>{{p.name}}</td>
     <td>{{p.description}}</td>
+    <td>{{p.category.name}}</td>
     <td>
       <button class="btn-primary" [routerLink]="'edit/' + p.id">Edit</button>
     </td>
