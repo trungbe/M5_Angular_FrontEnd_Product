@@ -18,28 +18,6 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {
   }
 
-  // private products: IProduct[] = [
-  //   {
-  //     id: 1,
-  //     name: 'iphone',
-  //     description: 'xin'
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'samsung',
-  //     description: 'cung dc'
-  //   },
-  //   {
-  //     id: 3,
-  //     name: 'sony',
-  //     description: 'net nhu sony'
-  //   },
-  //   {
-  //     id: 4,
-  //     name: 'gang tay',
-  //     description: 'am ap'
-  //   }
-  // ];
 //Observable: bất đồng bộ , DP,
   getAllProduct(): Observable<IProduct[]> {
     return this.httpClient.get<IProduct[]>(URL_SHOW);

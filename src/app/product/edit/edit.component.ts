@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {IProduct} from '../iproduct';
+import {IProduct} from '../../iproduct';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {ProductService} from '../product.service';
-import {ICategory} from '../icategory';
-import {CategoryService} from '../category.service';
+import {ProductService} from '../../product.service';
+import {ICategory} from '../../icategory';
+import {CategoryService} from '../../category.service';
 
 @Component({
   selector: 'app-edit',
@@ -55,7 +55,7 @@ export class EditComponent implements OnInit {
   // tslint:disable-next-line:typedef
   update() {
     this.productService.update(this.product.id, this.product).subscribe(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/product']);
     });
   }
 }

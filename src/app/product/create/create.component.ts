@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {ProductService} from '../product.service';
-import {IProduct} from '../iproduct';
-import {CategoryService} from '../category.service';
-import {ICategory} from '../icategory';
+import {ProductService} from '../../product.service';
+import {IProduct} from '../../iproduct';
+import {CategoryService} from '../../category.service';
+import {ICategory} from '../../icategory';
 
 @Component({
   selector: 'app-create',
@@ -34,7 +34,7 @@ export class CreateComponent implements OnInit {
   createNewProduct() {
     this.productService.create(this.product)
       .subscribe(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/product']);
       });
   }
 
